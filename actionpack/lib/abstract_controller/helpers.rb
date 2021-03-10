@@ -145,7 +145,7 @@ module AbstractController
       #
       def helper(*args, &block)
         modules_for_helpers(args).each do |mod|
-          next if _helpers.include?(mod)
+          next if mod.class == Class || _helpers.include?(mod)
           _helpers_for_modification.include(mod)
         end
 
